@@ -1,0 +1,7 @@
+/.idea/
+/.vscode/
+/vendor/
+/Controller/*
+!/Controller/SmapleController.php
+/Model/*
+tmp/
