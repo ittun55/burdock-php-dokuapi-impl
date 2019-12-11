@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "916a5373d918f0eafa587fe57f221214",
+    "content-hash": "823faa00654dddf7d550d690a0304b36",
     "packages": [
         {
             "name": "burdock/php-config",
@@ -91,16 +91,16 @@
         },
         {
             "name": "burdock/php-dokuapi",
-            "version": "v0.1.9",
+            "version": "v0.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ittun55/burdock-php-dokuapi.git",
-                "reference": "1b26e803cf7a3eb42c5b1efb00502bdcb0095be5"
+                "reference": "6f2bedafa02b6a186ec137ebdb42a08c3570da4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ittun55/burdock-php-dokuapi/zipball/1b26e803cf7a3eb42c5b1efb00502bdcb0095be5",
-                "reference": "1b26e803cf7a3eb42c5b1efb00502bdcb0095be5",
+                "url": "https://api.github.com/repos/ittun55/burdock-php-dokuapi/zipball/6f2bedafa02b6a186ec137ebdb42a08c3570da4d",
+                "reference": "6f2bedafa02b6a186ec137ebdb42a08c3570da4d",
                 "shasum": ""
             },
             "require": {
@@ -124,7 +124,7 @@
                     "email": "ittun55@gmail.com"
                 }
             ],
-            "time": "2019-12-11T14:18:45+00:00"
+            "time": "2019-12-11T16:22:26+00:00"
         },
         {
             "name": "iamcal/sql-parser",

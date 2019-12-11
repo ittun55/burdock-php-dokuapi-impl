@@ -5,7 +5,7 @@
     }
   },
   "require": {
-    "burdock/php-dokuapi": "^0.1.9",
+    "burdock/php-dokuapi": "^0.1.10",
     "symfony/console": "^4.4"
   },
   "autoload": {
