@@ -2,6 +2,6 @@
 /.vscode/
 /vendor/
 /Controller/*
-!/Controller/SmapleController.php
+!/Controller/SampleController.php
 /Model/*
 tmp/
