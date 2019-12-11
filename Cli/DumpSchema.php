@@ -32,14 +32,18 @@ class DumpSchema extends Command
     {
         $this->setDescription('Database Migration Tools');
 
-        $msg = 'This command upload a file to Dropbox remote path.' . PHP_EOL;
-        $msg.= 'You need to specify the config file path.' . PHP_EOL;
-        $msg.= './config.json will be used by default.';
+        $msg = 'This command dumps db schema to json.' . PHP_EOL;
+        $msg.= 'Also creates model classes.' . PHP_EOL;
         $this->setHelp($msg);
 
         $this->addOption(
             'config', 'c',InputOption::VALUE_REQUIRED,
             'path to config file.'
+        );
+
+        $this->addOption(
+            'connection', 'o',InputOption::VALUE_REQUIRED,
+            'db connection name.'
         );
 
         $this->addOption(
@@ -60,11 +64,11 @@ class DumpSchema extends Command
         try {
             $config_path = $input->getOption('config');
             Container::initialize($config_path);
-            $path = Container::get('config')->getValue('db.schema');
-            $model_path = DOKU_INC . 'api/Model/';
-            $json = Migrator::getTableDefsJson(Container::get('pdo'));
-
-            $tables = Migrator::getTables(Container::get('pdo'));
+            $root_dir = Container::get('config')->getValue('app.root_dir');
+            $model_path = $root_dir . '/Model/';
+            $conn = $input->getOption('connection') ? $input->getOption('connection') : 'default';
+            $json = Migrator::getTableDefsJson(Container::get("pdo.${conn}"));
+            $tables = Migrator::getTables(Container::get("pdo.${conn}"));
             $models = [];
             foreach($tables as $table) {
                 $class = ucfirst(strtr(ucwords(strtr($table, ['_' => ' '])), [' ' => '']));
@@ -78,9 +82,9 @@ class DumpSchema extends Command
                     echo $code . PHP_EOL;
                 }
             } else {
-                file_put_contents(DOKU_INC.$path, $json);
+                file_put_contents($model_path . 'schema.json', $json);
                 foreach($models as $file => $code) {
-                    file_put_contents($model_path.$file, $code);
+                    file_put_contents($model_path . $file, $code);
                 }
             }
         } catch (Exception $e) {
