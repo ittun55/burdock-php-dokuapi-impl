@@ -1,0 +1,18 @@
+{
+  "config": {
+    "platform": {
+      "php": "7.2"
+    }
+  },
+  "require": {
+    "burdock/php-dokuapi": "^0.1.9",
+    "symfony/console": "^4.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Api\\Cli\\": "Cli",
+      "Api\\Controller\\": "Controller",
+      "Api\\Model\\": "Model"
+    }
+  }
+}
